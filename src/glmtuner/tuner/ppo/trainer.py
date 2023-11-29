@@ -181,7 +181,7 @@ class PPOTrainerForChatGLM(PPOTrainer, PeftTrainer):
             return response[:, inputs["input_ids"].size(1):]
         return response
 
-    @PPODecorators.empty_cuda_cache()
+    @PPODecorators.empty_device_cache()
     def batched_forward_pass(
         self,
         model: AutoModelForCausalLMWithValueHead,
